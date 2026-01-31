@@ -14,15 +14,13 @@ public class Display extends JPanel {
     public static final int HEIGHT = 144;
 
     private final BufferedImage image;
-    private final int[] pixels; // Direct access to image data
+    private final int[] pixels;
     private final JFrame frame;
     private Joypad joypad;
 
     public Display() {
-        // Create an image compatible with the screen (faster rendering)
         this.image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
-        // Get direct access to the pixel data array for speed
         this.pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 
         frame = new JFrame("JavaBoy");
@@ -73,7 +71,6 @@ public class Display extends JPanel {
         this.joypad = joypad;
     }
 
-    // NEW: Copy the PPU buffer directly to the image buffer
     public void refreshFrame(int[] newPixels) {
         System.arraycopy(newPixels, 0, this.pixels, 0, newPixels.length);
         this.repaint();
@@ -82,7 +79,6 @@ public class Display extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        // Draw the image scaled 3x
         g.drawImage(image, 0, 0, WIDTH * 3, HEIGHT * 3, null);
     }
 }

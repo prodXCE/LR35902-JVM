@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
-        String romPath = "alleyway.gb"; // Set to "tetris.gb" or "alleyway.gb"
+        String romPath = "alleyway.gb";
 
         try {
             // 1. Initialize Hardware
@@ -41,7 +41,6 @@ public class Main {
                 // Run one CPU instruction
                 cpu.step();
 
-                // Check if we have processed enough cycles for one frame
                 if (cpu.cycles >= nextFrameCycleCount) {
                     nextFrameCycleCount += cyclesPerFrame;
 
