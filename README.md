@@ -48,6 +48,7 @@ Navigate to the project root and compile the source code:
 
 ```bash
 javac -d out src/main/java/dev/emulator/*.java src/main/java/dev/emulator/*/*.java
+```
 
 ## Running the Emulator
 
@@ -59,6 +60,7 @@ javac -d out src/main/java/dev/emulator/*.java src/main/java/dev/emulator/*/*.ja
 
 ```bash
 java -cp out dev.emulator.Main
+```
 
 
 
@@ -97,3 +99,4 @@ As this is an active learning project, the following limitations exist (To-Do li
 
 - **Timing Accuracy**  
   Frame timing uses a *busy-wait* loop for 60 FPS. Functional, but not strictly cycle-accurate to real hardware specifications.
+
